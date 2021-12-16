@@ -1,7 +1,7 @@
 import classes from "./RcPickerRect.module.css";
 import React, { useState } from "react";
 
-export function RcPickerRect() {
+export function RcPickerRect(props) {
   const [valueX, setValueX] = useState(0);
   const [valueY, setValueY] = useState(0);
 
@@ -27,7 +27,10 @@ export function RcPickerRect() {
 
       setValueX(x);
       setValueY(y);
-      console.log(x, y);
+
+      if (typeof props.onUpdate === "function") {
+        props.onUpdate(x, y);
+      }
     }
 
     function handleCursorMove(e) {

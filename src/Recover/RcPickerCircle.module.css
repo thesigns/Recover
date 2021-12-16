@@ -1,12 +1,11 @@
 .RcPickerCircle {
   position: relative;
-  width: 240px;
-  height: 240px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  background: linear-gradient(
-    45deg,
-    hsla(180, 0%, 100%, 1) 0%,
-    hsla(180, 100%, 50%, 1) 100%
+  background: conic-gradient(
+    hsla(180, 0%, 100%, 1),
+    hsla(180, 100%, 50%, 1)
   );
 }
 
@@ -17,13 +16,13 @@
   height: 80%;
   margin: 10%;
   border-radius: 50%;
-  background: #222;
+  background: #000;
   pointer-events: none;
 }
 
 .RcPickerCircle .cursor {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex;
   justify-content: center;
   align-items: center;

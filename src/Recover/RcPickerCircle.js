@@ -1,9 +1,7 @@
 import classes from "./RcPickerCircle.module.css";
 import React, { useState } from "react";
 
-export function RcPickerCircle() {
-  const [valueDeg, setValueDeg] = useState(0);
-
+export function RcPickerCircle(props) {
   function pick(e) {
     e.preventDefault();
 
@@ -36,19 +34,23 @@ export function RcPickerCircle() {
       let deltaY = y - centerY;
       let thetaRad = -Math.atan2(deltaX, deltaY);
 
-      if (thetaRad < 0) {
-        thetaRad = 2 * Math.PI + thetaRad;
-      }
+      thetaRad = thetaRad < 0 ? 2 * Math.PI + thetaRad : thetaRad;
 
       let thetaDeg = thetaRad * (180 / Math.PI);
+
       thetaDeg = (thetaDeg + 180) % 360;
+      
+      // remove? for floating point
+      thetaDeg = thetaDeg > 359.5 ? 0 : thetaDeg;
       thetaDeg = Math.round(thetaDeg);
 
       let radius =
         (circleCoords.width -
           (circleCoords.width - innerCircleCoords.width) / 2) /
         2;
+
       thetaRad += Math.PI / 2;
+
       cursorPosX =
         Math.cos(thetaRad) * radius +
         circleCoords.width / 2 -
@@ -61,8 +63,9 @@ export function RcPickerCircle() {
       cursor.style.left = cursorPosX + "px";
       cursor.style.top = cursorPosY + "px";
 
-      setValueDeg(thetaDeg);
-      console.log(thetaDeg);
+      if (typeof props.onUpdate === "function") {
+        props.onUpdate(thetaDeg);
+      }
     }
 
     function handleCursorMove(e) {
