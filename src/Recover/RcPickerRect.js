@@ -24,21 +24,24 @@ export function RcPickerRect() {
       cursorPosY = y * rectCoords.height - cursorCoords.height / 2;
       cursor.style.left = cursorPosX + "px";
       cursor.style.top = cursorPosY + "px";
+
       setValueX(x);
       setValueY(y);
+      console.log(x, y);
     }
 
     function handleCursorMove(e) {
       update(e.clientX, e.clientY);
     }
 
-    document.addEventListener("mousemove", handleCursorMove);
-
-    document.addEventListener("mouseup", (e) => {
+    function handleCursorEnd(e) {
       document.removeEventListener("mousemove", handleCursorMove);
+      document.removeEventListener("mouseup", handleCursorEnd);
       update(e.clientX, e.clientY);
-    });
+    }
 
+    document.addEventListener("mousemove", handleCursorMove);
+    document.addEventListener("mouseup", handleCursorEnd);
     update(e.clientX, e.clientY);
   }
 
