@@ -19,7 +19,7 @@ export function App() {
           Various React UI components
           <br />
           <small>
-            🢂{" "}
+          🡺{" "}
             <a href="https://github.com/thesigns/Recover">
               GitHub page of the project
             </a>
@@ -27,32 +27,36 @@ export function App() {
         </p>
       </header>
       <main>
-        <section>
+        <section className="component">
           <h1>RcPickerRect</h1>
-          <div id="RcPickerRect">
+          <div className="componentExample">
             <RcPickerRect onUpdate={updateRcPickerRect} />
           </div>
-          <div>
+          <div className="componentDescription">
             <p>
               <code>RcPickerRect</code> is a rectangular picker component. User
               can choose X and Y coordinates inside the rectangle. X and Y
               values are returned as a Number parameter through{" "}
               <code>props.onUpdate</code> property function. The values are in
-              [0, 1] range regardless of the size of the rectangle.
+              [0, 1] range regardless of the size of the rectangle.F
             </p>
             <p>
-              Result X: <input id="RcPickerRectOutputX"></input> Result Y:{" "}
-              <input id="RcPickerRectOutputY"></input>
+              <span>
+                X: <input id="RcPickerRectOutputX"></input>
+              </span>
+              <span>
+                Y: <input id="RcPickerRectOutputY"></input>
+              </span>
             </p>
           </div>
         </section>
 
-        <section>
+        <section className="component">
           <h1>RcPickerCircle</h1>
-          <div id="RcPickerRect">
+          <div className="componentExample">
             <RcPickerCircle onUpdate={updateRcPickerCircle} />
           </div>
-          <div>
+          <div className="componentDescription">
             <p>
               <code>RcPickerCircle</code> is a circular picker component. User
               can choose an angle on the circle. The angle is returned as a
@@ -61,7 +65,7 @@ export function App() {
               360).
             </p>
             <p>
-              Result: <input id="RcPickerCircleOutput"></input>
+              Angle: <input id="RcPickerCircleOutput"></input>
             </p>
           </div>
         </section>

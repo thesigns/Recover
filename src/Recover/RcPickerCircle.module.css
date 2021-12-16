@@ -32,8 +32,8 @@
   outline: 1px solid #000;
   border-radius: 50%;
   box-sizing: border-box;
-  top: 49%;
-  left: 1%;
+  top: 0.5%;
+  left: 45%;
   pointer-events: none;
 }
 

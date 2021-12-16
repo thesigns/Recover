@@ -11,21 +11,6 @@ html {
   height: 100%;
 }
 
-a {
-  font-family: "Heebo", sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  color: hsla(180, 100%, 25%, 1);
-  text-decoration: none;
-}
-
-code {
-  font-family: "Source Code Pro", monospace;
-  font-weight: 600;
-  color: hsla(180, 0%, 0%, 1);
-  text-decoration: none;
-}
-
 body {
   margin: 0;
   padding: 1em;
@@ -37,18 +22,18 @@ body {
   min-height: 100%;
 }
 
-#app div > header {
+header {
   margin-left: 2em;
 }
 
-#app div > header h1 {
+header h1 {
   font-size: 2.5rem;
   margin: 0.5em 0 0;
   font-weight: 900;
   line-height: 1em;
 }
 
-#app div > header p {
+header p {
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0 0 0.5em;
@@ -64,7 +49,7 @@ main {
   padding: 6em;
 }
 
-main > section {
+.component {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -72,11 +57,11 @@ main > section {
   margin-bottom: 3em;
 }
 
-main > section > h1 {
+.component h1 {
   width: 100%;
 }
 
-main > section > div:first-of-type {
+.componentExample {
   padding: 30px;
   background: #000;
   align-self: flex-start;
@@ -85,7 +70,7 @@ main > section > div:first-of-type {
   color: #fff;
 }
 
-main > section > div:nth-child(3) {
+.componentDescription {
   width: 200px;
   font-size: 0.9em;
   margin: 0 1em 0 0;
@@ -94,22 +79,44 @@ main > section > div:nth-child(3) {
   min-width: 200px;
 }
 
-main p {
+.componentDescription p {
   margin: 0 0 1em 0;
   font-size: 0.9rem;
   line-height: 1.5em;
 }
+.componentDescription span {
+  display: inline-block;
+  flex-wrap: nowrap;
+  width: auto;
+  margin-bottom: 0.5em;
+}
 
-main > section input {
+.componentDescription input {
   width: 6em;
   margin: 0 1em 0 0.2em;
   text-align: center;
+}
+
+a {
+  font-family: "Heebo", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: hsla(180, 100%, 25%, 1);
+  text-decoration: none;
+}
+
+code {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+  color: hsla(180, 0%, 0%, 1);
+  text-decoration: none;
 }
 
 @media screen and (max-width: 480px) {
   body {
     padding: 0.5em;
   }
+
   main {
     padding: 2em;
   }

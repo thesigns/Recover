@@ -38,12 +38,8 @@ export function RcPickerCircle(props) {
 
       let thetaDeg = thetaRad * (180 / Math.PI);
 
-      thetaDeg = (thetaDeg + 180) % 360;
+      thetaDeg = Math.round(((thetaDeg + 180) % 360) * 1000) / 1000;
       
-      // remove? for floating point
-      thetaDeg = thetaDeg > 359.5 ? 0 : thetaDeg;
-      thetaDeg = Math.round(thetaDeg);
-
       let radius =
         (circleCoords.width -
           (circleCoords.width - innerCircleCoords.width) / 2) /

@@ -18,8 +18,18 @@ export function RcPickerRect(props) {
     let cursorPosX, cursorPosY;
 
     function update(mouseX, mouseY) {
-      x = Math.min(Math.max((mouseX - rectCoords.x) / rectCoords.width, 0), 1);
-      y = Math.min(Math.max((mouseY - rectCoords.y) / rectCoords.height, 0), 1);
+      x =
+        Math.round(
+          Math.min(Math.max((mouseX - rectCoords.x) / rectCoords.width, 0), 1) *
+            1000
+        ) / 1000;
+      y =
+        Math.round(
+          Math.min(
+            Math.max((mouseY - rectCoords.y) / rectCoords.height, 0),
+            1
+          ) * 1000
+        ) / 1000;
       cursorPosX = x * rectCoords.width - cursorCoords.width / 2;
       cursorPosY = y * rectCoords.height - cursorCoords.height / 2;
       cursor.style.left = cursorPosX + "px";
